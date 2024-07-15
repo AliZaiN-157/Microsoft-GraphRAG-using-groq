@@ -1,0 +1,562 @@
+20:25:56,9 graphrag.config.read_dotenv INFO Loading pipeline .env file
+20:25:56,11 graphrag.index.cli INFO using default configuration: {
+    "llm": {
+        "api_key": "REDACTED, length 56",
+        "type": "openai_chat",
+        "model": "mixtral-8x7b-32768",
+        "max_tokens": 3000,
+        "request_timeout": 180.0,
+        "api_base": "https://api.groq.com/openai/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 2,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": ".",
+    "reporting": {
+        "type": "file",
+        "base_dir": "output/${timestamp}/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "output/${timestamp}/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "REDACTED, length 9",
+            "type": "openai_embedding",
+            "model": "nomic-embed-text-v1.5-GGUF/nomic-embed-text-v1.5.Q2_K.gguf",
+            "max_tokens": 4000,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:1234/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 300,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 56",
+            "type": "openai_chat",
+            "model": "mixtral-8x7b-32768",
+            "max_tokens": 3000,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 2,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 0,
+        "strategy": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "REDACTED, length 56",
+            "type": "openai_chat",
+            "model": "mixtral-8x7b-32768",
+            "max_tokens": 3000,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 2,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "REDACTED, length 56",
+            "type": "openai_chat",
+            "model": "mixtral-8x7b-32768",
+            "max_tokens": 3000,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 2,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": null,
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 56",
+            "type": "openai_chat",
+            "model": "mixtral-8x7b-32768",
+            "max_tokens": 3000,
+            "request_timeout": 180.0,
+            "api_base": "https://api.groq.com/openai/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 2,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 0,
+        "strategy": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+20:25:56,11 graphrag.index.create_pipeline_config INFO skipping workflows 
+20:25:56,20 graphrag.index.run INFO Running pipeline
+20:25:56,21 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at output\20240710-202555\artifacts
+20:25:56,22 graphrag.index.input.load_input INFO loading input from root_dir=input
+20:25:56,22 graphrag.index.input.load_input INFO using file storage for input
+20:25:56,25 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+20:25:56,25 graphrag.index.input.text INFO found text files from input, found [('book.txt', {})]
+20:25:56,28 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+20:25:56,28 graphrag.index.run INFO Final # of rows loaded: 1
+20:25:56,197 graphrag.index.run INFO Running workflow: create_base_text_units...
+20:25:56,197 graphrag.index.run INFO dependencies for create_base_text_units: []
+20:25:56,213 datashaper.workflow.workflow INFO executing verb orderby
+20:25:56,213 datashaper.workflow.workflow INFO executing verb zip
+20:25:56,213 datashaper.workflow.workflow INFO executing verb aggregate_override
+20:25:56,243 datashaper.workflow.workflow INFO executing verb chunk
+20:25:56,462 datashaper.workflow.workflow INFO executing verb select
+20:25:56,488 datashaper.workflow.workflow INFO executing verb unroll
+20:25:56,494 datashaper.workflow.workflow INFO executing verb rename
+20:25:56,509 datashaper.workflow.workflow INFO executing verb genid
+20:25:56,511 datashaper.workflow.workflow INFO executing verb unzip
+20:25:56,528 datashaper.workflow.workflow INFO executing verb copy
+20:25:56,538 datashaper.workflow.workflow INFO executing verb filter
+20:25:56,570 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+20:25:56,815 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+20:25:56,815 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+20:25:56,815 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+20:25:56,847 datashaper.workflow.workflow INFO executing verb entity_extract
+20:25:56,861 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=https://api.groq.com/openai/v1
+20:25:56,876 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for mixtral-8x7b-32768: TPM=0, RPM=0
+20:25:56,876 graphrag.index.llm.load_llm INFO create concurrency limiter for mixtral-8x7b-32768: 25
+20:25:56,942 datashaper.workflow.workflow INFO executing verb merge_graphs
+20:25:56,957 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+20:25:57,184 graphrag.index.run INFO Running workflow: create_summarized_entities...
+20:25:57,184 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+20:25:57,185 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+20:25:57,221 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+20:25:57,426 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+20:25:57,651 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+20:25:57,651 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+20:25:57,651 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+20:25:57,687 datashaper.workflow.workflow INFO executing verb cluster_graph
+20:25:57,727 datashaper.workflow.workflow INFO executing verb select
+20:25:57,733 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+20:25:58,11 graphrag.index.run INFO Running workflow: create_final_entities...
+20:25:58,11 graphrag.index.run INFO dependencies for create_final_entities: ['create_base_entity_graph']
+20:25:58,11 graphrag.index.run INFO read table from storage: create_base_entity_graph.parquet
+20:25:58,42 datashaper.workflow.workflow INFO executing verb unpack_graph
+20:25:58,73 datashaper.workflow.workflow INFO executing verb rename
+20:25:58,86 datashaper.workflow.workflow INFO executing verb select
+20:25:58,104 datashaper.workflow.workflow INFO executing verb dedupe
+20:25:58,124 datashaper.workflow.workflow INFO executing verb rename
+20:25:58,144 datashaper.workflow.workflow INFO executing verb filter
+20:25:58,254 datashaper.workflow.workflow INFO executing verb text_split
+20:25:58,338 datashaper.workflow.workflow INFO executing verb drop
+20:25:58,352 datashaper.workflow.workflow INFO executing verb merge
+20:25:58,392 datashaper.workflow.workflow INFO executing verb text_embed
+20:25:58,401 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://localhost:1234/v1
+20:25:58,416 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for nomic-embed-text-v1.5-GGUF/nomic-embed-text-v1.5.Q2_K.gguf: TPM=0, RPM=0
+20:25:58,417 graphrag.index.llm.load_llm INFO create concurrency limiter for nomic-embed-text-v1.5-GGUF/nomic-embed-text-v1.5.Q2_K.gguf: 25
+20:25:58,427 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 77 inputs via 77 snippets using 5 batches. max_batch_size=16, max_tokens=8191
+20:28:58,473 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:28:58,475 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:28:58,476 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:31:59,619 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:31:59,787 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:32:00,132 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:35:01,760 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:35:02,107 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:35:02,362 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:38:06,376 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:38:06,747 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:38:07,360 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:41:15,314 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:41:15,575 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:41:15,764 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:44:25,326 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:44:25,577 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:44:25,796 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:47:35,360 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:47:35,596 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:47:35,816 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:50:45,383 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:50:45,634 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:50:45,837 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:53:55,402 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:53:55,650 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"CURIOUSLY HEAVY CAKE":"curiously heavy cake is a type of cake with a unique characteristic of being heavy in weight."', '"SHE":"She is a character who leaves and parts from another character."', '"TIM":"Tim is a character who has a blood-horse, indicating a close relationship or association."', '"HE":"He is a character who is associated with Tim, the pudding, and Marley."', '"MARLEY":Marley is Scrooge\'s former partner in the business firm Scrooge and Marley, who has passed away. His name remains above the warehouse door as part of the firm\'s name. Marley\'s death is well-documented, and at the time of the story\'s beginning, he is no longer alive. As Scrooge\'s sole executor, administrator, assign, residuary legatee, friend, and mourner, Marley had a significant relationship with Scrooge prior to his death. Despite his importance, the text provides no direct role or specific attributes for Marley beyond his business partnership and subsequent death.', '"NAME":"name is a character in the story, but no other attributes or activities are mentioned."', '"CHANGE":"Change is mentioned as something that name is good at, but no other details are provided."', '"THE FUNERAL":"the funeral refers to Marley\'s funeral."', '"IDUARY LEGATEE":"iduary legatee is a friend and sole mourner of Scrooge\'s former partner, Marley."', '"BLIND MEN\'S DOGS":"Blind Men\'s Dogs are street animals known for recognizing Ebenezer Scrooge, which highlights his notoriety. When they encounter Scrooge, these dogs lead their blind owners away from him."', '"BEGGARS":"Beggars are individuals who request financial assistance from Scrooge."', '"CHILDREN":"Children are individuals who ask Scrooge for the time."', '"MAN OR WOMAN":"Man or woman are individuals who never inquired the way to a place from Scrooge."']}
+20:53:55,838 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"A CHRISTMAS CAROL":"A Christmas Carol is a literary work written by Charles Dickens, originally published in 1915 and later reprinted multiple times."', '"CHARLES DICKENS":"Charles Dickens is the author of A Christmas Carol, a significant literary work in English literature."', '"ARTHUR RACKHAM":Arthur Rackham is an illustrator known for his artistic contribution to literature. Specifically, he is the illustrator of the book "A Christmas Carol," playing a significant role in visually representing the story. His work showcases his unique style and adds depth to the narrative, making the story more engaging for readers.', '"J. B. LIPPINCOTT COMPANY":The J. B. Lippincott Company is the original publisher of A Christmas Carol, indicating their role in the distribution and promotion of the work. They are also the publisher of the book, which highlights their involvement in the publication process.', '"PHILADELPHIA AND NEW YORK":"Philadelphia and New York are the locations associated with the original publisher of A Christmas Carol, providing geographical context to the work\'s publication."', '"PHILADELPHIA":"Philadelphia is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"NEW YORK":"New York is one of the locations where the J. B. Lippincott Company operates, as indicated by the book\'s publication information."', '"1915":"1915 is the first year the book was published, indicating its historical context."', '"1923, 1927, 1932, 1933, 1934, 1935, 1947, 1948, 1952, 1958, 1962, 1964, 1966, 1967, 1969, 1971, 1972, 1973":"These are the years the book was reprinted, indicating its continued popularity and relevance."', '"0-397-00033-2":"0-397-00033-2 is the ISBN of the book, a unique identifier used for cataloging and inventory purposes."', '"GREAT BRITAIN":"Great Britain is the location where the book was printed, indicating the global reach of its publication."', '"C. D.":"C. D. is the author of the book, indicated by the preface and the characters listed."', '"DECEMBER, 1843":"December, 1843 is the month and year when the book was written, indicating its historical context."', '"BOB CRATCHIT":Bob Cratchit is a character who is involved in the story\'s events, particularly when he is seen going down a slide on Cornhill. He holds a significant role in the story as a clerk to Ebenezer Scrooge, making him an important figure in the narrative.', '"PETER CRATCHIT":Peter Cratchit is a son of Bob Cratchit, indicating a family relationship. This information is provided in the descriptions and confirms Peter Cratchit\'s familial relationship in the story.', '"TIM CRATCHIT":Tim Cratchit, also known as Tiny Tim, is a cripple and the youngest son of Bob Cratchit. His role and condition make him a significant character in the story.']}
+20:57:05,426 graphrag.index.reporting.file_workflow_callbacks INFO Error Invoking LLM details={'input': ['"MR. FEZZIWIG":MR. Fezziwig is a character in the story, whose role is not explicitly stated in the provided text. However, he is depicted as a kind-hearted and jovial old merchant, suggesting a positive and influential role.', '"FRED":Fred is Scrooge\'s nephew, establishing a family relationship between them. This is further supported by the fact that Scrooge mentions Fred as someone who might let him in, implying a level of familiarity and comfort between the two.', '"GHOST OF CHRISTMAS PAST":"The Ghost of Christmas Past is a phantom showing things past, making it a supernatural character."', '"GHOST OF CHRISTMAS PRESENT":"The Ghost of Christmas Present is a spirit of a kind, generous, and hearty nature, making it a benevolent supernatural character."', '"GHOST OF CHRISTMAS YET TO COME":"The Ghost of Christmas Yet to Come is an apparition showing the shadows of things which yet may happen, making it a supernatural character."', '"GHOST OF JACOB MARLEY":"The Ghost of Jacob Marley is a spectre of Scrooge\'s former partner in business, making it a supernatural character."', '"JOE":Joe is a character who engages in a conversation about bed-curtains with a woman, and is also a marine-store dealer. Additionally, he is described as a receiver of stolen goods, which suggests a questionable character.', '"EBENEZER SCROOGE":Ebenezer Scrooge is a grasping, covetous old man who is also the surviving partner of the firm of Scrooge and Marley. This makes him the main character of the story. He is known for his miserly ways and is often depicted as a solitary figure in literature.', '"MR. TOPPER":"MR. TOPPER is a bachelor. No further information is provided about his role or character."', '"DICK WILKINS":Dick Wilkins is a fellow apprentice of Scrooge\'s. The descriptions provided do not offer additional information about his role or character.', '"BELLE":Belle is a comely matron who was an old sweetheart of Scrooge\'s, indicating a past romantic relationship between them.', '"CAROLINE":Caroline is the wife of one of Scrooge\'s debtors. The descriptions provided do not offer any additional information about her role or character.', '"MRS.":"Mrs. is a title, but no further information is provided about the character it refers to."', '"LONDON":"London is the city where the story takes place, making it a significant location."', '"CHRISTMAS":"Christmas is the holiday during which the story takes place, making it a significant event."', '"STORE":"A location where goods, potentially including stolen ones, are bought and sold."']}
+20:57:05,426 datashaper.workflow.workflow ERROR Error executing verb "text_embed" in create_final_entities: Request timed out.
+Traceback (most recent call last):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 373, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection_pool.py", line 216, in handle_async_request
+    raise exc from None
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection_pool.py", line 196, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 143, in handle_async_request
+    raise exc
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 113, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 186, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 224, in _receive_event
+    data = await self._network_stream.read(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1558, in _request
+    response = await self._client.send(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1661, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1689, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1726, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1763, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 372, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\datashaper\workflow\workflow.py", line 415, in _execute_verb
+    result = await result
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 105, in text_embed
+    return await _text_embed_in_memory(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 130, in _text_embed_in_memory
+    result = await strategy_exec(texts, callbacks, cache, strategy_args)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 61, in run
+    embeddings = await _execute(llm, text_batches, ticker, semaphore)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 105, in _execute
+    results = await asyncio.gather(*futures)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 304, in __wakeup
+    future.result()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 99, in embed
+    chunk_embeddings = await llm(chunk)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\caching_llm.py", line 104, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\tenacity\_asyncio.py", line 71, in __anext__
+    do = self.iter(retry_state=self._retry_state)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\tenacity\__init__.py", line 325, in iter
+    raise retry_exc.reraise()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\tenacity\__init__.py", line 158, in reraise
+    raise self.last_attempt.result()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 439, in result
+    return self.__get_result()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\openai\openai_embeddings_llm.py", line 36, in _execute_llm
+    embedding = await self.client.embeddings.create(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\resources\embeddings.py", line 215, in create
+    return await self._post(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1826, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1519, in request
+    return await self._request(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1577, in _request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+20:57:05,426 graphrag.index.reporting.file_workflow_callbacks INFO Error executing verb "text_embed" in create_final_entities: Request timed out. details=None
+20:57:05,441 graphrag.index.run ERROR error running workflow create_final_entities
+Traceback (most recent call last):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 373, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection_pool.py", line 216, in handle_async_request
+    raise exc from None
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection_pool.py", line 196, in handle_async_request
+    response = await connection.handle_async_request(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    return await self._connection.handle_async_request(request)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 143, in handle_async_request
+    raise exc
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 113, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 186, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_async\http11.py", line 224, in _receive_event
+    data = await self._network_stream.read(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1558, in _request
+    response = await self._client.send(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1661, in send
+    response = await self._send_handling_auth(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1689, in _send_handling_auth
+    response = await self._send_handling_redirects(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1726, in _send_handling_redirects
+    response = await self._send_single_request(request)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 1763, in _send_single_request
+    response = await transport.handle_async_request(request)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 372, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_transports\default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\run.py", line 323, in run_pipeline
+    result = await workflow.run(context, callbacks)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\datashaper\workflow\workflow.py", line 369, in run
+    timing = await self._execute_verb(node, context, callbacks)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\datashaper\workflow\workflow.py", line 415, in _execute_verb
+    result = await result
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 105, in text_embed
+    return await _text_embed_in_memory(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\text_embed.py", line 130, in _text_embed_in_memory
+    result = await strategy_exec(texts, callbacks, cache, strategy_args)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 61, in run
+    embeddings = await _execute(llm, text_batches, ticker, semaphore)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 105, in _execute
+    results = await asyncio.gather(*futures)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 304, in __wakeup
+    future.result()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\asyncio\tasks.py", line 232, in __step
+    result = coro.send(None)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\index\verbs\text\embed\strategies\openai.py", line 99, in embed
+    chunk_embeddings = await llm(chunk)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\caching_llm.py", line 104, in __call__
+    result = await self._delegate(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 177, in __call__
+    result, start = await execute_with_retry()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 159, in execute_with_retry
+    async for attempt in retryer:
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\tenacity\_asyncio.py", line 71, in __anext__
+    do = self.iter(retry_state=self._retry_state)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\tenacity\__init__.py", line 325, in iter
+    raise retry_exc.reraise()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\tenacity\__init__.py", line 158, in reraise
+    raise self.last_attempt.result()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 439, in result
+    return self.__get_result()
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 165, in execute_with_retry
+    return await do_attempt(), start
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\rate_limiting_llm.py", line 147, in do_attempt
+    return await self._delegate(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\base_llm.py", line 49, in __call__
+    return await self._invoke(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\base\base_llm.py", line 53, in _invoke
+    output = await self._execute_llm(input, **kwargs)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\graphrag\llm\openai\openai_embeddings_llm.py", line 36, in _execute_llm
+    embedding = await self.client.embeddings.create(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\resources\embeddings.py", line 215, in create
+    return await self._post(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1826, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1519, in request
+    return await self._request(
+  File "C:\Users\Ali Zain\AppData\Local\Programs\Python\Python310\lib\site-packages\openai\_base_client.py", line 1577, in _request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+20:57:05,441 graphrag.index.reporting.file_workflow_callbacks INFO Error running pipeline! details=None
